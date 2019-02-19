@@ -1,16 +1,14 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.wearebrain.androidkotlinextensions"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -22,14 +20,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-
-    // Modules
-    implementation project(':kotlinandroidextensions')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    // AndroidX
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    //AndroidX
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
