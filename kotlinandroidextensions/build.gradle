@@ -4,10 +4,10 @@ apply plugin: 'kotlin-android'
 
 publish {
     def groupProjectID = 'com.wearebrain.kotlinandroidextensions'
-    def artifactProjectID = 'kotlinandroidextensions'
+    def artifactProjectID'kotlinandroidextensions'
     def publishVersionID = '0.0.1'
 
-    userOrg = 'iTruff'
+    userOrg = 'itruff'
     repoName = 'android-kotlin-extensions'
     groupId = groupProjectID
     artifactId = artifactProjectID

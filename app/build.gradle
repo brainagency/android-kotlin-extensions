@@ -24,12 +24,12 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    // Modules
-    implementation project(':kotlinandroidextensions')
-
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     // AndroidX
     implementation 'androidx.appcompat:appcompat:1.0.2'
+
+    // Android Kotlin Extensions
+    implementation 'com.wearebrain.kotlinandroidextensions:kotlinandroidextensions:0.0.1'
 }
