@@ -1,5 +1,21 @@
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+
+publish {
+    def groupProjectID = 'com.wearebrain.kotlinandroidextensions'
+    def artifactProjectID = 'kotlinandroidextensions'
+    def publishVersionID = '0.0.1'
+
+    userOrg = 'iTruff'
+    repoName = 'android-kotlin-extensions'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'Set of useful Kotlin extensions for Android classes (TextView, EditText, Context, etc)'
+    website = 'https://github.com/brainagency/android-kotlin-extensions'
+}
+
 
 android {
     compileSdkVersion 28
@@ -24,7 +40,4 @@ dependencies {
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    //AndroidX
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 }
