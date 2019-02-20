@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 publish {
     def groupProjectID = 'com.wearebrain.kotlinandroidextensions'
     def artifactProjectID = 'kotlinandroidextensions'
-    def publishVersionID = '0.0.1'
+    def publishVersionID = '0.0.2'
 
     userOrg = 'itruff'
     repoName = 'android-kotlin-extensions'
