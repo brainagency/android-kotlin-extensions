@@ -1,6 +1,5 @@
 package com.wearebrain.kotlinandroidextensions
 
-import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import android.text.Editable
@@ -8,6 +7,23 @@ import android.text.TextWatcher
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.TextView
+
+/**
+ * Returns string representation of text value of this edit text
+ *
+ * @see EditText.getText
+ */
+val EditText.textStr: String
+    get() = text.toString()
+
+/**
+ * Returns string representation of text values of text view text
+ *
+ * @see EditText.getText
+ */
+val TextView.textStr: String
+    get() = text.toString()
 
 
 /**
@@ -97,32 +113,6 @@ inline fun EditText.onDoneClicked(crossinline block: () -> Unit) {
         } else {
             false
         }
-    }
-}
-
-/**
- * Sets View.OnFocusChangeListener and calls specified function [block]
- * if this view become focused
- *
- * @see View.OnFocusChangeListener
- * @see EditText.setOnFocusChangeListener
- */
-inline fun EditText.onFocused(crossinline block: () -> Unit) {
-    setOnFocusChangeListener { _, hasFocus ->
-        if (hasFocus) block.invoke()
-    }
-}
-
-/**
- * Sets View.OnFocusChangeListener and calls specified function [block]
- * if this view become unfocused
- *
- * @see View.OnFocusChangeListener
- * @see EditText.setOnFocusChangeListener
- */
-inline fun EditText.onUnFocused(crossinline block: () -> Unit) {
-    setOnFocusChangeListener { _, hasFocus ->
-        if (!hasFocus) block.invoke()
     }
 }
 
@@ -264,8 +254,7 @@ inline fun EditText.onTextChanged(crossinline block: (String?) -> Unit): TextWat
  * Shows keyboard for this edit text
  */
 fun EditText.showKeyboard() {
-    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
+    context.inputMethodService().showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
 
 /**
@@ -273,32 +262,19 @@ fun EditText.showKeyboard() {
  *
  * @param delayMillis - delay in milliseconds before keyboard will be shown
  */
-fun EditText.showKeyboardDelayed(delayMillis: Long) {
+fun EditText.showKeyboardDelayed(delayMillis: Long) =
     Handler().postDelayed({ showKeyboard() }, delayMillis)
-}
 
 /**
  * Hides keyboard for this edit text
  */
-fun EditText.hideKeyboard() {
-    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(windowToken, 0)
-}
+fun EditText.hideKeyboard() =
+    context.inputMethodService().hideSoftInputFromWindow(windowToken, 0)
 
 /**
  * Hides keyboard for this edit text with delay
  *
  * @param delayMillis - delay in milliseconds before keyboard will be hided
  */
-fun EditText.hideKeyboardDelayed(delayMillis: Long) {
+fun EditText.hideKeyboardDelayed(delayMillis: Long) =
     Handler().postDelayed({ hideKeyboard() }, delayMillis)
-}
-
-/**
- * Returns string representation of text values of this edit text
- *
- * @see EditText.getText
- */
-val EditText.textStr: String
-    get() = text.toString()
-
