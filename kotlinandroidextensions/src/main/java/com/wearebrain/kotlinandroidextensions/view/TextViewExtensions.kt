@@ -1,4 +1,4 @@
-package com.wearebrain.kotlinandroidextensions
+package com.wearebrain.kotlinandroidextensions.view
 
 import android.os.Handler
 import android.os.Looper
@@ -8,6 +8,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
+import com.wearebrain.kotlinandroidextensions.context.inputMethodService
 
 /**
  * Returns string representation of text value of this edit text
@@ -124,7 +125,7 @@ inline fun EditText.onDoneClicked(crossinline block: () -> Unit) {
  *
  * @return created TextWatcher to be able to remove it later
  */
-inline fun EditText.afterTextChanged(crossinline block: (String?) -> Unit): TextWatcher {
+inline fun EditText.afterTextChanged(crossinline block: (String) -> Unit): TextWatcher {
     val textWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
             s?.apply {
@@ -159,7 +160,7 @@ inline fun EditText.afterTextChanged(crossinline block: (String?) -> Unit): Text
  */
 inline fun EditText.afterTextChangedDelayed(
     delayMillis: Long = 500,
-    crossinline block: (String?) -> Unit
+    crossinline block: (String) -> Unit
 ): TextWatcher {
     val textWatcher = object : TextWatcher {
 
@@ -198,7 +199,7 @@ inline fun EditText.afterTextChangedDelayed(
  *
  * @return created TextWatcher to be able to remove it later
  */
-inline fun EditText.beforeTextChanged(crossinline block: (String?) -> Unit): TextWatcher {
+inline fun EditText.beforeTextChanged(crossinline block: (String) -> Unit): TextWatcher {
     val textWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
             // Not used
@@ -228,7 +229,7 @@ inline fun EditText.beforeTextChanged(crossinline block: (String?) -> Unit): Tex
  *
  * @return created TextWatcher to be able to remove it later
  */
-inline fun EditText.onTextChanged(crossinline block: (String?) -> Unit): TextWatcher {
+inline fun EditText.onTextChanged(crossinline block: (String) -> Unit): TextWatcher {
     val textWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable?) {
             // Not used

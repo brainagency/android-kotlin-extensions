@@ -1,4 +1,4 @@
-package com.wearebrain.kotlinandroidextensions
+package com.wearebrain.kotlinandroidextensions.view
 
 import android.widget.CompoundButton
 

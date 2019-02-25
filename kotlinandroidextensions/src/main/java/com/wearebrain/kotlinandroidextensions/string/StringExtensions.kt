@@ -1,4 +1,4 @@
-package com.wearebrain.kotlinandroidextensions
+package com.wearebrain.kotlinandroidextensions.string
 
 import android.os.Build
 import android.text.Html
@@ -22,7 +22,7 @@ val String.Companion.WHITESPACE: String
  * @see Html.fromHtml for Build.VERSION >= Build.VERSION_CODES.N
  * @see Html.fromHtml otherwise
  */
-fun String.clearHtml(): String {
+fun String.clearHtmlTags(): String {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         Html.fromHtml(this, Html.FROM_HTML_MODE_LEGACY).toString()
     } else {

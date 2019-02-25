@@ -1,4 +1,4 @@
-package com.wearebrain.kotlinandroidextensions
+package com.wearebrain.kotlinandroidextensions.view
 
 import android.view.View
 import android.widget.EditText
@@ -104,5 +104,25 @@ inline fun View.onLongClick(crossinline block: () -> Unit) {
         block.invoke()
         true
     }
+}
+
+/**
+ * Set enabled state for this view
+ *
+ * @see View.setEnabled
+ * @see View.isEnabled
+ */
+fun View.enable() {
+    isEnabled = true
+}
+
+/**
+ * Set disabled state for this view
+ *
+ * @see View.setEnabled
+ * @see View.isEnabled
+ */
+fun View.disable() {
+    isEnabled = false
 }
 
