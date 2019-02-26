@@ -1,1 +1,1 @@
-include ':app', ':kotlinandroidextensions'
+include ':sample', ':ake'
