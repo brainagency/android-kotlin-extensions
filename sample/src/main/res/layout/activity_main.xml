@@ -3,21 +3,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.wearebrain.ake.sample.MainActivity">
-    
+
+    <Button
+        android:id="@+id/btnContextExtensions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Context extensions" />
+
+    <Button
+        android:id="@+id/btnResourceExtensions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Resources extensions" />
+
+    <Button
+        android:id="@+id/btnStringExtensions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="String extensions" />
+
+    <CheckBox
+        android:id="@+id/cb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Track both" />
+
+    <CheckBox
+        android:id="@+id/cbUnchecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="false"
+        android:text="Track checked" />
+
+    <CheckBox
+        android:id="@+id/cbChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="Track uncheked" />
+
+    <Button
+        android:id="@+id/btnShowKeyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show keyboard" />
+
+    <Button
+        android:id="@+id/btnShowKeyboardDelayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show keyboard with delay (1000ms)" />
+
+    <Button
+        android:id="@+id/btnHideKeyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hide keyboard" />
+
+    <Button
+        android:id="@+id/btnHideKeyboardDelayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hide keyboard with delay (1000ms)" />
+
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:id="@+id/et"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Keyboard edittext" />
 
 </LinearLayout>

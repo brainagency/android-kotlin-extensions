@@ -255,6 +255,7 @@ inline fun EditText.onTextChanged(crossinline block: (String) -> Unit): TextWatc
  * Shows keyboard for this edit text
  */
 fun EditText.showKeyboard() {
+    requestFocus()
     context.inputMethodService().showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
 }
 
@@ -263,14 +264,21 @@ fun EditText.showKeyboard() {
  *
  * @param delayMillis - delay in milliseconds before keyboard will be shown
  */
-fun EditText.showKeyboardDelayed(delayMillis: Long) =
-    Handler().postDelayed({ showKeyboard() }, delayMillis)
+fun EditText.showKeyboardDelayed(delayMillis: Long) {
+    Handler().postDelayed({
+        requestFocus()
+        showKeyboard()
+    }, delayMillis)
+}
 
 /**
  * Hides keyboard for this edit text
  */
 fun EditText.hideKeyboard() =
-    context.inputMethodService().hideSoftInputFromWindow(windowToken, 0)
+    context.inputMethodService().hideSoftInputFromWindow(
+        windowToken,
+        InputMethodManager.HIDE_NOT_ALWAYS
+    )
 
 /**
  * Hides keyboard for this edit text with delay

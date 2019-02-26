@@ -7,6 +7,7 @@ import android.app.usage.NetworkStatsManager
 import android.content.Context
 import android.hardware.SensorManager
 import android.location.LocationManager
+import android.media.AudioManager
 import android.media.MediaRouter
 import android.net.ConnectivityManager
 import android.net.wifi.WifiManager
@@ -116,6 +117,31 @@ fun Context.locationService() =
     getService<LocationManager>(Context.LOCATION_SERVICE)
 
 /**
+ * Returns SearchManager
+ *
+ * @return instance of SearchManager
+ *
+ * @see Context.getSystemService
+ * @see Context.SEARCH_SERVICE
+ * @see SearchManager
+ */
+fun Context.searchService() =
+    getService<SearchManager>(Context.SEARCH_SERVICE)
+
+
+/**
+ * Returns SensorManager
+ *
+ * @return instance of SensorManager
+ *
+ * @see Context.getSystemService
+ * @see Context.SENSOR_SERVICE
+ * @see SensorManager
+ */
+fun Context.sensorService() =
+    getService<SensorManager>(Context.SENSOR_SERVICE)
+
+/**
  * Returns StorageManager
  *
  * @return instance of StorageManager
@@ -126,18 +152,6 @@ fun Context.locationService() =
  */
 fun Context.storageService() =
     getService<StorageManager>(Context.STORAGE_SERVICE)
-
-/**
- * Returns SensorManager
- *
- * @return instance of SensorManager
- *
- * @see Context.getSystemService
- * @see Context.SENSOR_SERVICE
- * @see sensorService
- */
-fun Context.sensorService() =
-    getService<SensorManager>(Context.SENSOR_SERVICE)
 
 /**
  * Returns Vibrator
@@ -174,6 +188,18 @@ fun Context.connectivityService() =
  */
 fun Context.wifiService() =
     getService<WifiManager>(Context.WIFI_SERVICE)
+
+/**
+ * Returns AudioManager
+ *
+ * @return instance of AudioManager
+ *
+ * @see Context.getSystemService
+ * @see Context.AUDIO_SERVICE
+ * @see AudioManager
+ */
+fun Context.audioService() =
+    getService<AudioManager>(Context.AUDIO_SERVICE)
 
 /**
  * Returns MediaRouter

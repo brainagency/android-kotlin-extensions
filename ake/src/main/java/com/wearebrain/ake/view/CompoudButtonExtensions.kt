@@ -27,3 +27,18 @@ inline fun CompoundButton.onUnChecked(crossinline block: () -> Unit) {
         if (!isChecked) block.invoke()
     }
 }
+
+/**
+ * Sets CompoundButton.OnCheckedChangeListener and calls specified function [block]
+ * after checked state changed
+ *
+ * @return true - if checked, otherwise - false
+ *
+ * @see CompoundButton.setOnCheckedChangeListener
+ * @see CompoundButton.OnCheckedChangeListener
+ */
+inline fun CompoundButton.onCheckedChange(crossinline block: (Boolean) -> Unit) {
+    setOnCheckedChangeListener { _, isChecked ->
+        block.invoke(isChecked)
+    }
+}
